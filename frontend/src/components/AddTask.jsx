@@ -36,16 +36,17 @@ const AddTask = ({handleNewTaskAdded}) => {
 
 
   return (
-    <Card className="p-6 border-0 bg-gradient-card shadow-custom-lg">
+    <Card className="p-6 bg-card border-2 border-black shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row">
          
         <Input
           type="text"
           placeholder="Add a new task..."
-          className="h-12 text-base bg-slate-50 sm:flex-1 border-border/50 focus:border-primary/50 focus:ring-primary/20"
+          // Xóa bg-black/text-white đi, chỉ giữ lại border-2 border-black và bg-white
+          className="h-12 text-base bg-white text-black sm:flex-1 border-2 border-black focus-visible:ring-0 focus-visible:ring-offset-0"
           value={newTaskTitle}
           onChange={(even) => setNewTaskTitle(even.target.value)}
-          onKeyPress={handleKeyPress} //chạy mỗi khi người dùng gõ phím
+          onKeyPress={handleKeyPress}
         />
 
         <Button

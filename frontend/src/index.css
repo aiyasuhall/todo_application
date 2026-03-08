@@ -18,10 +18,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 28% 27%;
 
-    /* Beautiful gradient colors */
-    --primary: 258 89% 65%;
-    --primary-light: 255 92% 76%;
-    --primary-dark: 263 69% 50%;
+    /* Đã chuyển màu Tím sang Đen/Xám Đậm */
+    --primary: 0 0% 10%;
+    --primary-light: 0 0% 30%;
+    --primary-dark: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 5% 96%;
@@ -44,14 +44,18 @@
 
     --border: 214 32% 91%; /* slate-200 */
     --input: 210 40% 96%;
-    --ring: 258 89% 65%;
+    
+    /* Viền khi nhấn vào input chuyển sang màu Đen */
+    --ring: 0 0% 10%;
 
-    /* Gradients */
+    /* Gradients: Gradient của nút chuyển sang tone Đen tuyền */
     --gradient-primary: linear-gradient(
       135deg,
-      hsl(255 92% 76%) 0%,
-      hsl(263 69% 50%) 100%
+      hsl(0 0% 25%) 0%,
+      hsl(0 0% 0%) 100%
     );
+    
+    /* Giữ nguyên gradient nền và card để không bị mất màu trắng */
     --gradient-background: linear-gradient(
       135deg,
       hsl(240 10% 98%) 0%,
@@ -69,7 +73,9 @@
       0 2px 4px -2px hsl(218 36% 18% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(218 36% 18% / 0.1),
       0 4px 6px -4px hsl(218 36% 18% / 0.1);
-    --shadow-glow: 0 0 20px hsl(258 89% 65% / 0.3);
+      
+    /* Ánh sáng tỏa ra từ nút chuyển sang viền mờ màu đen */
+    --shadow-glow: 0 0 20px hsl(0 0% 0% / 0.2);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -78,19 +84,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -104,7 +103,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    /* Chế độ Dark mode: Nút chuyển sang trắng, chữ đen */
+    --primary: 0 0% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;

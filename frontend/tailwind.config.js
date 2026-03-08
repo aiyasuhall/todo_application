@@ -18,6 +18,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        // Bạn có thể đổi 'Poppins' thành 'Inter' nếu thích sự cứng cáp hơn
+        sans: ['Poppins', 'sans-serif'], 
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

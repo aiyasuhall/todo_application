@@ -59,19 +59,16 @@ const TaskCard = ({task, index, handleTaskChanged}) => {
             console.error("Error to update task.", error);
             toast.error("Failed to update new task!")
         }
-
     }
-
     const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       updateTask();
         }
     };
 
-    
   return (
       <Card className={cn(
-          "p-5 bg-gradient-card border-0 shadow-custom-md hover:shadow-custom-lg transition-all duration-200 animate-fade-in group",
+          "p-5 bg-card border-2 border-black shadow-sm hover:shadow-md transition-all duration-200 animate-fade-in group",
           task.status === "complete" && "opacity-75",
       )}
       style={{ animationDelay: `${index * 50}ms` }} // delay tăng dần cho mỗi thẻ

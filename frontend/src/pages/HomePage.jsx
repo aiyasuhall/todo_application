@@ -87,24 +87,33 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(filteredTasks.length / visibleTaskLimit);
 
+  const handleDeleteAllTasks = async () => {
+    const confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa TẤT CẢ công việc không?");
+    if (!confirmDelete) return;
+
+    try {
+      await api.delete(`/tasks`);
+      toast.success("All tasks are deleted successfully!");
+      fetchTasks(); // Load lại danh sách rỗng
+    } catch (error) {
+      console.error("Error to delete:", error);
+      toast.error("Failed to delete all tasks T.T");
+    }
+  };
+
     return (
-        <div className="min-h-screen w-full bg-[#f8fafc] relative">
-  {/* Soft Morning Mist Background */}
-  <div
-    className="absolute inset-0 z-0"
-    style={{
-      backgroundImage: `
-        linear-gradient(135deg, 
-          rgba(248,250,252,1) 0%, 
-          rgba(219,234,254,0.7) 30%, 
-          rgba(165,180,252,0.5) 60%, 
-          rgba(129,140,248,0.6) 100%
-        ),
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.6) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(199,210,254,0.4) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(224,231,255,0.3) 0%, transparent 60%)
-      `,
-    }}
+    <div className="min-h-screen w-full bg-white relative text-gray-800">
+      {/* Concentric Squares - Light Pattern */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 5px, rgba(75, 85, 99, 0.06) 5px, rgba(75, 85, 99, 0.06) 6px, transparent 6px, transparent 15px),
+            repeating-linear-gradient(90deg, transparent, transparent 5px, rgba(75, 85, 99, 0.06) 5px, rgba(75, 85, 99, 0.06) 6px, transparent 6px, transparent 15px),
+            repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(107, 114, 128, 0.04) 10px, rgba(107, 114, 128, 0.04) 11px, transparent 11px, transparent 30px),
+            repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(107, 114, 128, 0.04) 10px, rgba(107, 114, 128, 0.04) 11px, transparent 11px, transparent 30px)
+          `,
+        }}
   />
             {/* Your Content/Components */}
         <div className="container pt-8 mx-auto relative z-10">
@@ -122,6 +131,7 @@ const HomePage = () => {
               setFilter={setFilter}
               activeTasksCount={activeTaskCount}
               completedTasksCount={completeTaskCount}
+              handleDeleteAllTasks={handleDeleteAllTasks}
             />
                 
                 {/* Task List */}
@@ -146,14 +156,10 @@ const HomePage = () => {
             <Footer
               activeTasksCount={activeTaskCount}
               completedTasksCount={completeTaskCount}
-            />
-                
+            /> 
                 </div>
             </div>
-        </div>
-
-
-
+        </div> 
     );
 }
 

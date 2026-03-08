@@ -2,10 +2,10 @@ import React from 'react'
 import { Badge } from './ui/badge'
 import { FilterType } from '@/lib/data'
 import { Button } from './ui/button'
-import { Filter } from 'lucide-react'
+import { Filter, Trash2 } from 'lucide-react'
 
 
-const StatsAndFillters = ({completedTasksCount = 0, activeTasksCount = 0, filter = "all", setFilter}) => {
+const StatsAndFillters = ({completedTasksCount = 0, activeTasksCount = 0, filter = "all", setFilter, handleDeleteAllTasks}) => {
   return (
     <div className="flex flex-col sm:flex-row items-start justify-between sm:items-center gap-4">
       
@@ -43,6 +43,17 @@ const StatsAndFillters = ({completedTasksCount = 0, activeTasksCount = 0, filter
 
             </Button>
           ))}
+        
+        {/* Nút Delete All */}
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="text-black border-2 border-black hover:bg-black hover:text-white rounded-md transition-colors"
+            onClick={handleDeleteAllTasks}
+          >
+            <Trash2 className="size-4 mr-1" />
+            Delete All
+          </Button>
       </div>
 
     </div>

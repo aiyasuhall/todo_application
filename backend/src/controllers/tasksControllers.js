@@ -106,3 +106,13 @@ export const deleteTask = async (req, res) => {
         res.status(500).json({ message: "Internal server error" }); // Trả về lỗi nếu có vấn đề với server
     }
 }
+
+export const deleteAllTasks = async (req, res) => {
+    try {
+        await Task.deleteMany({}); // Xóa toàn bộ document trong collection Task
+        return res.status(200).json({ message: "All tasks deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting all tasks:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
